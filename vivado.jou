@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Jun 16 18:01:23 2026
+# Process ID         : 11856
+# Current directory  : C:/Cornell Summer 2026/FPGA/DDS
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent32084 C:\Cornell Summer 2026\FPGA\DDS\DDS.xpr
+# Log file           : C:/Cornell Summer 2026/FPGA/DDS/vivado.log
+# Journal file       : C:/Cornell Summer 2026/FPGA/DDS\vivado.jou
+# Running On         : Tarik
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 13th Gen Intel(R) Core(TM) i7-1360P
+# CPU Frequency      : 2611 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 16
+# Host memory        : 16849 MB
+# Swap memory        : 22548 MB
+# Total Virtual      : 39397 MB
+# Available Virtual  : 7995 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Cornell Summer 2026/FPGA/DDS/DDS.xpr}

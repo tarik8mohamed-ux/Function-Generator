@@ -1,13 +1,725 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x0",
+      "boundary_crc": "0xB6E146B95BBF4592",
+      "device": "xc7a35tcpg236-1",
       "gen_directory": "../../../../DDS.gen/sources_1/bd/DDS_Block",
       "name": "DDS_Block",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2025.2"
     },
-    "design_tree": {}
+    "design_tree": {
+      "sine_table_0": "",
+      "phase_accumulator_0": "",
+      "xfft_0": "",
+      "xlconstant_0": "",
+      "xlconcat_0": "",
+      "sim_clk_gen_0": "",
+      "full_wave_axis_0": "",
+      "xlslice_0": "",
+      "xlslice_1": "",
+      "mult_gen_0": "",
+      "mult_gen_1": "",
+      "c_addsub_0": "",
+      "xlconstant_1": "",
+      "xlconstant_2": ""
+    },
+    "interface_ports": {
+      "M_AXIS_DATA_0": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "HAS_TKEEP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "HAS_TLAST": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "HAS_TREADY": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_TSTRB": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "TDEST_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TID_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          }
+        },
+        "hdl_attributes": {
+          "LOCKED": {
+            "value": "FALSE",
+            "value_src": "default"
+          }
+        },
+        "port_maps": {
+          "TDATA": {
+            "physical_name": "M_AXIS_DATA_0_tdata",
+            "direction": "O"
+          },
+          "TLAST": {
+            "physical_name": "M_AXIS_DATA_0_tlast",
+            "direction": "O"
+          },
+          "TREADY": {
+            "physical_name": "M_AXIS_DATA_0_tready",
+            "direction": "I"
+          },
+          "TVALID": {
+            "physical_name": "M_AXIS_DATA_0_tvalid",
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "ports": {
+      "enable_0": {
+        "direction": "I"
+      },
+      "tuning_word_0": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "frame_size_0": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "ABS_FFT": {
+        "type": "data",
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "Tlast_FFT": {
+        "direction": "O"
+      },
+      "Tvalid_FFT": {
+        "direction": "O"
+      },
+      "m_axis_tlast_0": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "sine_table_0": {
+        "vlnv": "xilinx.com:module_ref:sine_table:1.0",
+        "ip_revision": "1",
+        "xci_name": "DDS_Block_sine_table_0_0",
+        "xci_path": "ip\\DDS_Block_sine_table_0_0\\DDS_Block_sine_table_0_0.xci",
+        "inst_hier_path": "sine_table_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sine_table",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "addr": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
+          },
+          "sine_val": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          }
+        }
+      },
+      "phase_accumulator_0": {
+        "vlnv": "xilinx.com:module_ref:phase_accumulator:1.0",
+        "ip_revision": "1",
+        "xci_name": "DDS_Block_phase_accumulator_0_0",
+        "xci_path": "ip\\DDS_Block_phase_accumulator_0_0\\DDS_Block_phase_accumulator_0_0.xci",
+        "inst_hier_path": "phase_accumulator_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "phase_accumulator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "DDS_Block_sim_clk_gen_0_0_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "enable": {
+            "direction": "I"
+          },
+          "tuning_word": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "addr": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          },
+          "half_cycle": {
+            "direction": "O"
+          }
+        }
+      },
+      "xfft_0": {
+        "vlnv": "xilinx.com:ip:xfft:9.1",
+        "ip_revision": "15",
+        "xci_name": "DDS_Block_xfft_0_0",
+        "xci_path": "ip\\DDS_Block_xfft_0_0\\DDS_Block_xfft_0_0.xci",
+        "inst_hier_path": "xfft_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "input_width": {
+            "value": "16"
+          },
+          "output_ordering": {
+            "value": "natural_order"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "10",
+        "xci_name": "DDS_Block_xlconstant_0_0",
+        "xci_path": "ip\\DDS_Block_xlconstant_0_0\\DDS_Block_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "16"
+          }
+        }
+      },
+      "xlconcat_0": {
+        "vlnv": "xilinx.com:ip:xlconcat:2.1",
+        "ip_revision": "7",
+        "xci_name": "DDS_Block_xlconcat_0_0",
+        "xci_path": "ip\\DDS_Block_xlconcat_0_0\\DDS_Block_xlconcat_0_0.xci",
+        "inst_hier_path": "xlconcat_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "IN0_WIDTH": {
+            "value": "8"
+          },
+          "IN1_WIDTH": {
+            "value": "8"
+          },
+          "IN2_WIDTH": {
+            "value": "16"
+          },
+          "NUM_PORTS": {
+            "value": "3"
+          }
+        }
+      },
+      "sim_clk_gen_0": {
+        "vlnv": "xilinx.com:ip:sim_clk_gen:1.0",
+        "ip_revision": "6",
+        "xci_name": "DDS_Block_sim_clk_gen_0_0",
+        "xci_path": "ip\\DDS_Block_sim_clk_gen_0_0\\DDS_Block_sim_clk_gen_0_0.xci",
+        "inst_hier_path": "sim_clk_gen_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "CLOCK_TYPE": {
+            "value": "Single_Ended"
+          }
+        }
+      },
+      "full_wave_axis_0": {
+        "vlnv": "xilinx.com:module_ref:full_wave_axis:1.0",
+        "ip_revision": "1",
+        "xci_name": "DDS_Block_full_wave_axis_0_0",
+        "xci_path": "ip\\DDS_Block_full_wave_axis_0_0\\DDS_Block_full_wave_axis_0_0.xci",
+        "inst_hier_path": "full_wave_axis_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "full_wave_axis",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "m_axis": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "TDATA_NUM_BYTES": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "TDEST_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TID_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TREADY": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TKEEP": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TLAST": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "DDS_Block_sim_clk_gen_0_0_clk",
+                "value_src": "default_prop"
+              }
+            },
+            "port_maps": {
+              "TDATA": {
+                "physical_name": "m_axis_tdata",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "TLAST": {
+                "physical_name": "m_axis_tlast",
+                "direction": "O"
+              },
+              "TVALID": {
+                "physical_name": "m_axis_tvalid",
+                "direction": "O"
+              },
+              "TREADY": {
+                "physical_name": "m_axis_tready",
+                "direction": "I"
+              }
+            }
+          }
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_BUSIF": {
+                "value": "m_axis",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "DDS_Block_sim_clk_gen_0_0_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "half_cycle": {
+            "direction": "I"
+          },
+          "sine_val": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
+          },
+          "frame_size": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "ip_revision": "5",
+        "xci_name": "DDS_Block_xlslice_0_2",
+        "xci_path": "ip\\DDS_Block_xlslice_0_2\\DDS_Block_xlslice_0_2.xci",
+        "inst_hier_path": "xlslice_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "31"
+          },
+          "DIN_TO": {
+            "value": "16"
+          },
+          "DOUT_WIDTH": {
+            "value": "16"
+          }
+        }
+      },
+      "xlslice_1": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "ip_revision": "5",
+        "xci_name": "DDS_Block_xlslice_1_0",
+        "xci_path": "ip\\DDS_Block_xlslice_1_0\\DDS_Block_xlslice_1_0.xci",
+        "inst_hier_path": "xlslice_1",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "15"
+          }
+        }
+      },
+      "mult_gen_0": {
+        "vlnv": "xilinx.com:ip:mult_gen:12.0",
+        "ip_revision": "24",
+        "xci_name": "DDS_Block_mult_gen_0_0",
+        "xci_path": "ip\\DDS_Block_mult_gen_0_0\\DDS_Block_mult_gen_0_0.xci",
+        "inst_hier_path": "mult_gen_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "MultType": {
+            "value": "Parallel_Multiplier"
+          },
+          "PortAType": {
+            "value": "Signed"
+          },
+          "PortAWidth": {
+            "value": "16"
+          },
+          "PortBType": {
+            "value": "Signed"
+          },
+          "PortBWidth": {
+            "value": "16"
+          }
+        }
+      },
+      "mult_gen_1": {
+        "vlnv": "xilinx.com:ip:mult_gen:12.0",
+        "ip_revision": "24",
+        "xci_name": "DDS_Block_mult_gen_0_1",
+        "xci_path": "ip\\DDS_Block_mult_gen_0_1\\DDS_Block_mult_gen_0_1.xci",
+        "inst_hier_path": "mult_gen_1",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "PortAType": {
+            "value": "Signed"
+          },
+          "PortAWidth": {
+            "value": "16"
+          },
+          "PortBType": {
+            "value": "Signed"
+          },
+          "PortBWidth": {
+            "value": "16"
+          }
+        }
+      },
+      "c_addsub_0": {
+        "vlnv": "xilinx.com:ip:c_addsub:12.0",
+        "ip_revision": "21",
+        "xci_name": "DDS_Block_c_addsub_0_0",
+        "xci_path": "ip\\DDS_Block_c_addsub_0_0\\DDS_Block_c_addsub_0_0.xci",
+        "inst_hier_path": "c_addsub_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "A_Width": {
+            "value": "32"
+          },
+          "B_Value": {
+            "value": "00000000000000000000000000000000"
+          },
+          "B_Width": {
+            "value": "32"
+          },
+          "CE": {
+            "value": "false"
+          },
+          "Latency": {
+            "value": "1"
+          },
+          "Out_Width": {
+            "value": "32"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "10",
+        "xci_name": "DDS_Block_xlconstant_0_1",
+        "xci_path": "ip\\DDS_Block_xlconstant_0_1\\DDS_Block_xlconstant_0_1.xci",
+        "inst_hier_path": "xlconstant_1",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "xlconstant_2": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "10",
+        "xci_name": "DDS_Block_xlconstant_1_1",
+        "xci_path": "ip\\DDS_Block_xlconstant_1_1\\DDS_Block_xlconstant_1_1.xci",
+        "inst_hier_path": "xlconstant_2",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "1"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "xfft_0_M_AXIS_DATA": {
+        "interface_ports": [
+          "M_AXIS_DATA_0",
+          "xfft_0/M_AXIS_DATA"
+        ]
+      }
+    },
+    "nets": {
+      "c_addsub_0_S": {
+        "ports": [
+          "c_addsub_0/S",
+          "ABS_FFT"
+        ]
+      },
+      "enable_0_1": {
+        "ports": [
+          "enable_0",
+          "phase_accumulator_0/enable"
+        ]
+      },
+      "frame_size_0_1": {
+        "ports": [
+          "frame_size_0",
+          "full_wave_axis_0/frame_size"
+        ]
+      },
+      "full_wave_axis_0_m_axis_tdata": {
+        "ports": [
+          "full_wave_axis_0/m_axis_tdata",
+          "xlconcat_0/In0"
+        ]
+      },
+      "full_wave_axis_0_m_axis_tlast": {
+        "ports": [
+          "full_wave_axis_0/m_axis_tlast",
+          "m_axis_tlast_0",
+          "xfft_0/s_axis_data_tlast"
+        ]
+      },
+      "full_wave_axis_0_m_axis_tvalid": {
+        "ports": [
+          "full_wave_axis_0/m_axis_tvalid",
+          "xfft_0/s_axis_data_tvalid"
+        ]
+      },
+      "mult_gen_0_P": {
+        "ports": [
+          "mult_gen_0/P",
+          "c_addsub_0/A"
+        ]
+      },
+      "mult_gen_1_P": {
+        "ports": [
+          "mult_gen_1/P",
+          "c_addsub_0/B"
+        ]
+      },
+      "phase_accumulator_0_addr": {
+        "ports": [
+          "phase_accumulator_0/addr",
+          "sine_table_0/addr"
+        ]
+      },
+      "phase_accumulator_0_half_cycle": {
+        "ports": [
+          "phase_accumulator_0/half_cycle",
+          "full_wave_axis_0/half_cycle"
+        ]
+      },
+      "reset_0_1": {
+        "ports": [
+          "sim_clk_gen_0/sync_rst",
+          "phase_accumulator_0/reset",
+          "full_wave_axis_0/reset"
+        ]
+      },
+      "sim_clk_gen_0_clk": {
+        "ports": [
+          "sim_clk_gen_0/clk",
+          "xfft_0/aclk",
+          "phase_accumulator_0/clk",
+          "full_wave_axis_0/clk",
+          "mult_gen_0/CLK",
+          "mult_gen_1/CLK",
+          "c_addsub_0/CLK"
+        ]
+      },
+      "sine_table_0_sine_val": {
+        "ports": [
+          "sine_table_0/sine_val",
+          "full_wave_axis_0/sine_val"
+        ]
+      },
+      "tuning_word_0_1": {
+        "ports": [
+          "tuning_word_0",
+          "phase_accumulator_0/tuning_word"
+        ]
+      },
+      "xfft_0_m_axis_data_tdata": {
+        "ports": [
+          "xfft_0/m_axis_data_tdata",
+          "xlslice_1/Din",
+          "xlslice_0/Din"
+        ]
+      },
+      "xfft_0_m_axis_data_tlast": {
+        "ports": [
+          "xfft_0/m_axis_data_tlast",
+          "Tlast_FFT"
+        ]
+      },
+      "xfft_0_m_axis_data_tvalid": {
+        "ports": [
+          "xfft_0/m_axis_data_tvalid",
+          "Tvalid_FFT"
+        ]
+      },
+      "xfft_0_s_axis_data_tready": {
+        "ports": [
+          "xfft_0/s_axis_data_tready",
+          "full_wave_axis_0/m_axis_tready"
+        ]
+      },
+      "xlconcat_0_dout": {
+        "ports": [
+          "xlconcat_0/dout",
+          "xfft_0/s_axis_data_tdata"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "xlconcat_0/In2"
+        ]
+      },
+      "xlconstant_1_dout": {
+        "ports": [
+          "xlconstant_1/dout",
+          "xlconcat_0/In1"
+        ]
+      },
+      "xlconstant_2_dout": {
+        "ports": [
+          "xlconstant_2/dout",
+          "xfft_0/m_axis_data_tready"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "mult_gen_0/B",
+          "mult_gen_0/A"
+        ]
+      },
+      "xlslice_1_Dout": {
+        "ports": [
+          "xlslice_1/Dout",
+          "mult_gen_1/B",
+          "mult_gen_1/A"
+        ]
+      }
+    }
   }
 }

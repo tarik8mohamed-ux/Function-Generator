@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../DDS.srcs/sources_1/new/Full_Wave.vhd" \
+"../../../../DDS.srcs/sources_1/new/Phase_Accumulator.vhd" \
+"../../../../DDS.srcs/sources_1/new/Sine_Table.vhd" \
+"../../../../DDS.srcs/sim_1/new/TestBench.vhd" \
+
+# Do not sort compile order
+nosort
